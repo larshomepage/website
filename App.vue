@@ -1,17 +1,9 @@
 <template>
   <div id="app">
     <v-app id="inspire" light>
-      <v-toolbar
-        color="blue darken-4"
-        dark
-        app
-        :fixed="toolbar.fixed"
-        :clipped-left="toolbar.clippedLeft"
-      >
-        <div v-if="!isMobile">
-          <v-toolbar-title id="nav-bar__title">Kentekengespot.nl</v-toolbar-title>
-          <v-spacer/>
-        </div>
+      <v-toolbar color="blue darken-4" dark app :fixed="toolbar.fixed">
+        <v-toolbar-title id="nav-bar__title">Kentekengespot.nl</v-toolbar-title>
+        <v-spacer/>
         <v-toolbar-items>
           <v-btn flat to="/">Home</v-btn>
           <v-btn flat to="/kenteken">Kenteken check</v-btn>
