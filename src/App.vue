@@ -1,38 +1,38 @@
 <template>
-  <v-app>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
-    </v-toolbar>
+  <div id="app">
+    <v-app id="inspire" light>
+      <v-toolbar color="blue darken-4" dark app fixed clipped-left>
+        <v-toolbar-title>Lars Schipper</v-toolbar-title>
+        <v-spacer/>
+        <v-toolbar-items>
+          <v-btn flat to="/">Home</v-btn>
+        </v-toolbar-items>
+      </v-toolbar>
+      <v-content>
+        <router-view/>
+      </v-content>
 
-    <v-content>
-      <HelloWorld/>
-    </v-content>
-  </v-app>
+      <v-snackbar v-model="$store.state.snackbar" top :timeout="6000">
+        {{$store.getters.snackbarText}}
+        <v-btn color="red" flat @click="$store.commit('hideSnackbar')">Close</v-btn>
+      </v-snackbar>
+    </v-app>
+  </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  },
-  data () {
-    return {
-      //
-    }
+<script>
+export default {};
+</script>
+
+<style>
+.clickable {
+  cursor: pointer;
+}
+
+@media (min-width: 1400px) {
+  .v-content__wrap {
+    padding: 0 15% 0 15%;
   }
 }
-</script>
+</style>
